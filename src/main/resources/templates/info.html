@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>Info</title>
+    <link th:href="@{/info-stylesheet.css}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="topnav">
+      <a th:href="@{/}">Form</a>
+      <a class="active" th:href="@{/inventory}">Inventory</a>
+    </div>
+    <h1>Welcome to blood group directory</h1>
+    <div class="container">
+      <table>
+        <tr class="head">
+          <th>Name</th>
+          <th>Blood-Group</th>
+          <th>Sex</th>
+          <th>Age</th>
+          <th>Update</th>
+        </tr>
+        <tr th:each="sample : ${sample}">
+          <td th:text="${sample.name}"></td>
+          <td th:text="${sample.group}"></td>
+          <td th:text="${sample.gender}"></td>
+          <td th:text="${sample.age}"></td>
+          <td>
+            <a
+              role="button"
+              style="color: white; background-color: #263238"
+              class="table-button"
+              th:href="@{/(id = ${sample.id})}"
+              >Update</a
+            >
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
